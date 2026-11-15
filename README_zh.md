@@ -82,7 +82,7 @@ irm https://raw.githubusercontent.com/KevinXC5/t3code-claude-desktop-theme/main/
 
 - **底部横向分段式选择条**：将思考等级从窄侧栏移至弹窗底部（弹窗加宽至 `632px`，模型列表高度收敛为 `360px` 给下方 `Cyber Access` 等扩展行留足空间），并开启 `flex-wrap: wrap`，确保 6 档模型（`Low` ～ `Ultra TURBO`）永不横向裁切。
 - **未选中态保持克制干净**：弹窗中未激活的档位仅保留透明底与各自彩色图标，只对当前激活项 `[aria-checked="true"]` 亮起浅边镭射流光框，视觉焦点明确。
-- **全档位浅边流动镭射（弹窗内外同步）**：使用双层 `background-clip: padding-box, border-box` + `@keyframes cd-laser-flow` 打造 `1px` 贴边流光效果，底部触发器内置 `16px × 16px` 图标与前置模型图标 `size-4` 严格等高对齐：
+- **全档位浅边流动镭射（弹窗内外同步）**：使用双层 `background-clip: padding-box, border-box` + `@keyframes cd-laser-flow` 打造 `1px` 贴边流光效果，底部触发器内置 `14px × 14px` 图标与前置模型图标 `size-4` 视觉齐平居中：
   - **Low / Minimal**：薄荷翠绿（`#4FB69A` / `#26896C`）+ 轻羽图标 + 翠绿冰青流光框
   - **Medium**：天青蔚蓝（`#69A6F8` / `#2F6FC8`）+ 双星火花图标 + 冰蓝靛青流光框
   - **High**：**独立烈焰绯红**（`#F96B7E` / `#D6384E`，刻意避开主题陶土橙 `#D97757`）+ 火焰图标 + 绯红玫粉流光框

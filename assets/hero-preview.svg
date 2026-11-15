@@ -189,7 +189,7 @@
         <text x="23" y="17" fill="#E2DDD8" font-size="12" font-weight="500">GPT-6.1 Terra</text>
         <line x1="112" y1="6" x2="112" y2="20" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
 
-        <!-- Crimson High Laser Pill (16px icon + laser rim) -->
+        <!-- Crimson High Laser Pill (14px icon + laser rim) -->
         <g transform="translate(121, 1)" filter="url(#glowHigh)">
           <rect x="0" y="0" width="70" height="24" rx="7.5" fill="#252428" stroke="url(#laserHigh)" stroke-width="1.2"/>
           <path d="M12.5 14.5A2 2 0 0 0 14.2 12.5c0-1-.4-1.5-.8-2.2-.8-1.5-.2-2.9 1.4-4.3.4 1.8 1.5 3.5 3 4.7 1.4 1.2 2.2 2.5 2.2 4a5 5 0 1 1-10 0c0-.8.3-1.6.7-2.2a2 2 0 0 0 1.8 2z" fill="none" stroke="#F96B7E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>

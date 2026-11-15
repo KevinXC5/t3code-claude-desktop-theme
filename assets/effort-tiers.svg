@@ -41,8 +41,8 @@
   <rect width="1120" height="492" rx="20" fill="url(#bg2)" stroke="rgba(255,255,255,0.08)"/>
 
   <!-- Header -->
-  <text x="36" y="44" fill="#F4EFE9" font-size="20" font-weight="700">6-Tier Thinking Level Spectrum · 16px Glyphs &amp; Flowing Laser Rims</text>
-  <text x="36" y="68" fill="#9E9790" font-size="12.5">Synced across the bottom composer pill (16px icon matching size-4 model logos) and active [aria-checked="true"] picker pills</text>
+  <text x="36" y="44" fill="#F4EFE9" font-size="20" font-weight="700">6-Tier Thinking Level Spectrum · 14px/15px Glyphs &amp; Flowing Laser Rims</text>
+  <text x="36" y="68" fill="#9E9790" font-size="12.5">Synced across the bottom composer pill (14px optically centered glyph) and active [aria-checked="true"] picker pills (15px)</text>
 
   <!-- Tier Cards (3x2 Grid) -->
   <!-- Card 1: Low -->

@@ -82,7 +82,7 @@ Built from Claude Desktop's exact surface hierarchy instead of harsh pure-black 
 
 - **Horizontal Segmented Effort Bar**: Moves the reasoning selector from a cramped side column to a full-width bottom bar (`632px` popover, `360px` compact model list height so extra settings rows like *Cyber Access* never clip), with `flex-wrap: wrap` so 6-tier models (`Low` through `Ultra TURBO`) never truncate horizontally.
 - **Distraction-Free Unchecked Pills**: Unselected effort tiers stay transparent and clean (differentiated only by their custom SVG glyph and color), keeping visual focus exclusively on `[aria-checked="true"]`.
-- **Flowing Shallow-Edge Laser Rims**: Uses dual-layer `background-clip: padding-box, border-box` with `@keyframes cd-laser-flow` across all tiers, synced between the picker and the bottom composer pill (`16px × 16px` icon matching `size-4` model icons):
+- **Flowing Shallow-Edge Laser Rims**: Uses dual-layer `background-clip: padding-box, border-box` with `@keyframes cd-laser-flow` across all tiers, synced between the picker and the bottom composer pill (`14px × 14px` optically centered glyph paired with `size-4` model icons):
   - **Low / Minimal**: Mint Emerald (`#4FB69A` / `#26896C`) + Feather glyph + Mint-Cyan rim
   - **Medium**: Sky Azure (`#69A6F8` / `#2F6FC8`) + Dual-Sparkle glyph + Azure-Indigo rim
   - **High**: Refined Crimson (`#F96B7E` / `#D6384E`) + Flame glyph + Crimson-Rose rim — intentionally distinct from the `#D97757` terracotta composer border
