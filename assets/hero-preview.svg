@@ -64,8 +64,8 @@
       <circle cx="50" cy="16" r="6" fill="#C23B3B"/>
       <text x="64" y="20" fill="#DDD6CF" font-size="11.5" font-weight="600">Dark Mode</text>
 
-      <rect x="134" y="0" width="132" height="32" rx="16" fill="#FAF9F5" stroke="#DEDAD0"/>
-      <circle cx="152" cy="16" r="6" fill="#FAF9F5" stroke="#C7C2B6"/>
+      <rect x="134" y="0" width="132" height="32" rx="16" fill="#FCFBF9" stroke="#E4E2DB"/>
+      <circle cx="152" cy="16" r="6" fill="#FCFBF9" stroke="#CFCBC1"/>
       <circle cx="168" cy="16" r="6" fill="#C96442"/>
       <circle cx="184" cy="16" r="6" fill="#A62626"/>
       <text x="198" y="20" fill="#2C2C2A" font-size="11.5" font-weight="600">Light Mode</text>
@@ -207,25 +207,25 @@
   <g transform="translate(652, 108)">
     <!-- Light Mode Mini Showcase Card -->
     <g filter="url(#cardShadow)">
-      <rect width="424" height="196" rx="16" fill="#FAF9F5" stroke="#E6E3DA" stroke-width="1.2"/>
-      <rect x="0" y="0" width="108" height="196" rx="16" fill="#F4F2EA"/>
-      <rect x="92" y="0" width="16" height="196" fill="#F4F2EA"/>
-      <line x1="108" y1="0" x2="108" y2="196" stroke="#E7E4DA"/>
+      <rect width="424" height="196" rx="16" fill="#FCFBF9" stroke="#EAE8E2" stroke-width="1.2"/>
+      <rect x="0" y="0" width="108" height="196" rx="16" fill="#F7F6F2"/>
+      <rect x="92" y="0" width="16" height="196" fill="#F7F6F2"/>
+      <line x1="108" y1="0" x2="108" y2="196" stroke="#ECEAE4"/>
 
       <text x="14" y="26" fill="#141413" font-size="12" font-weight="700">T3</text>
       <rect x="33" y="14" width="38" height="16" rx="8" fill="rgba(201,100,66,0.14)"/>
       <text x="39" y="25.5" fill="#C96442" font-size="9.5" font-weight="600">Code</text>
-      <rect x="12" y="42" width="84" height="26" rx="7" fill="#E5E2D7"/>
+      <rect x="12" y="42" width="84" height="26" rx="7" fill="#EAE8E1"/>
       <path d="M22 49h4l-.8 3.2 1.2 1.2v.8h-2v2.4l-.4.4-.4-.4v-2.4h-2v-.8l1.2-1.2z" fill="#A62626"/>
       <text x="31" y="58.5" fill="#141413" font-size="10" font-weight="600">Light UI</text>
       <text x="16" y="88" fill="#6B6A64" font-size="10">Warm Linen</text>
-      <text x="16" y="106" fill="#6B6A64" font-size="10">#FAF9F5</text>
+      <text x="16" y="106" fill="#6B6A64" font-size="10">#FCFBF9</text>
       <text x="16" y="128" fill="#C96442" font-size="10" font-weight="600">#C96442</text>
 
       <!-- Light Content + Composer -->
       <text x="126" y="34" fill="#141413" font-size="13" font-family="Charter, Georgia, serif">Warm parchment canvas with crisp ink contrast.</text>
-      <rect x="126" y="48" width="276" height="32" rx="8" fill="#F0EEE6" stroke="#E6E3DA"/>
-      <text x="138" y="68" fill="#3D3D3A" font-size="10.5" font-family="ui-monospace, Menlo, monospace">--cd-bg: #FAF9F5; --cd-accent: #C96442;</text>
+      <rect x="126" y="48" width="276" height="32" rx="8" fill="#F5F4F0" stroke="#EAE8E2"/>
+      <text x="138" y="68" fill="#3D3D3A" font-size="10.5" font-family="ui-monospace, Menlo, monospace">--cd-bg: #FCFBF9; --cd-accent: #C96442;</text>
 
       <!-- Light Composer with Holographic Ultra Trigger -->
       <rect x="126" y="96" width="278" height="80" rx="14" fill="#FFFFFF" stroke="rgba(201,100,66,0.44)" stroke-width="1.2"/>

@@ -57,8 +57,8 @@ Built from Claude Desktop's exact surface hierarchy instead of harsh pure-black 
 
 | Role | Dark Mode | Light Mode | Purpose |
 | :--- | :---: | :---: | :--- |
-| **Canvas** | `#191919` | `#FAF9F5` | Main conversation background |
-| **Sidebar** | `#1F1F1F` | `#F4F2EA` | Thread & project navigation |
+| **Canvas** | `#191919` | `#FCFBF9` | Main conversation background |
+| **Sidebar** | `#1F1F1F` | `#F7F6F2` | Thread & project navigation |
 | **Composer Card** | `#303030` | `#FFFFFF` | Floating elevated prompt surface |
 | **Primary Accent** | `#D97757` | `#C96442` | Squircle send button, focus rings, links, diffs |
 | **Pin Indicator** | `#C23B3B` | `#A62626` | Crimson pin icon for quick visual anchoring |
