@@ -10,7 +10,7 @@
 :root,body {
   --font-sans: "AnthropicSans","Anthropic Sans","Styrene B","Styrene A",-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Segoe UI",system-ui,sans-serif !important;
   --font-mono: "AnthropicMono","Anthropic Mono","JetBrains Mono","JetBrainsMono Nerd Font",ui-monospace,"SF Mono",Menlo,Consolas,monospace !important;
-  --cd-font-serif: "AnthropicSerif","Anthropic Serif","Tiempos Text",Charter,Georgia,Cambria,"PingFang SC","Hiragino Sans GB",serif;
+  --cd-font-serif: "AnthropicSerif","Anthropic Serif","Tiempos Text",Charter,Georgia,Cambria,"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",SimSun,serif;
   --info: #D97757 !important;
   --info-foreground: #E8937A !important;
   --info-surface: rgba(217,119,87,0.16) !important;
@@ -30,6 +30,7 @@
   --cd-composer-bg: #303030;
   --cd-border: rgba(255,255,255,0.085);
   --cd-border-strong: rgba(255,255,255,0.14);
+  --cd-divider-rim: linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.17) 8%,rgba(255,255,255,0.22) 26%,rgba(255,255,255,0.44) 50%,rgba(255,255,255,0.22) 74%,rgba(255,255,255,0.17) 92%,transparent 100%) top / 100% 1px no-repeat,linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.09) 8%,rgba(255,255,255,0.12) 26%,rgba(255,255,255,0.22) 50%,rgba(255,255,255,0.12) 74%,rgba(255,255,255,0.09) 92%,transparent 100%) bottom / 100% 1px no-repeat;
   --cd-accent: #D97757;
   --cd-accent-link: #E8937A;
   --cd-accent-hover: #E38566;
@@ -104,6 +105,7 @@
   --cd-composer-bg: #FFFFFF;
   --cd-border: rgba(20,20,19,0.08);
   --cd-border-strong: rgba(20,20,19,0.13);
+  --cd-divider-rim: linear-gradient(90deg,transparent 0%,rgba(20,20,19,0.18) 8%,rgba(20,20,19,0.22) 26%,rgba(20,20,19,0.36) 50%,rgba(20,20,19,0.22) 74%,rgba(20,20,19,0.18) 92%,transparent 100%) top / 100% 1px no-repeat,linear-gradient(90deg,transparent 0%,rgba(20,20,19,0.09) 8%,rgba(20,20,19,0.12) 26%,rgba(20,20,19,0.20) 50%,rgba(20,20,19,0.12) 74%,rgba(20,20,19,0.09) 92%,transparent 100%) bottom / 100% 1px no-repeat;
   --cd-accent: #C96442;
   --cd-accent-link: #B85230;
   --cd-accent-hover: #B85838;
@@ -344,6 +346,41 @@ a[aria-label="T3 Code home"]::after {
   filter: none !important;
 }
 
+/* 将 Working 分组（含未点击确认的 Done 线程）置顶，并保持 Snoozed / Settled 分组沉底 */
+[data-slot="sidebar"] [data-testid="sidebar-working-header"] {
+  order: -4;
+  margin-top: 0 !important;
+}
+
+[data-slot="sidebar"] [data-thread-item]:has([data-sidebar-parent="shelf:working"]) {
+  order: -3;
+}
+
+[data-slot="sidebar"] [data-testid="sidebar-pinned-divider"] ~ [data-thread-item]:has([data-sidebar-row]:not([data-sidebar-parent]) .font-medium.text-success-foreground) {
+  order: -2;
+}
+
+[data-slot="sidebar"] :is([data-testid="sidebar-pinned-divider"] ~ [data-thread-item]:has([data-sidebar-row]:not([data-sidebar-parent]) .font-medium.text-success-foreground):not(:has(~ [data-thread-item] [data-sidebar-row]:not([data-sidebar-parent]) .font-medium.text-success-foreground)),ul:not(:has([data-testid="sidebar-pinned-divider"] ~ [data-thread-item] [data-sidebar-row]:not([data-sidebar-parent]) .font-medium.text-success-foreground)) > [data-thread-item]:has([data-sidebar-parent="shelf:working"]):not(:has(~ [data-thread-item] [data-sidebar-parent="shelf:working"]))) {
+  position: relative;
+  padding-bottom: 16px !important;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--cd-divider-rim);
+    pointer-events: none;
+  }
+}
+
+[data-slot="sidebar"] ul:has([data-testid="sidebar-working-header"]) > [data-testid="sidebar-snoozed-header"],
+[data-slot="sidebar"] ul:has([data-testid="sidebar-working-header"]):not(:has([data-testid="sidebar-snoozed-header"])) > [data-testid="sidebar-settled-header"] {
+  margin-top: auto !important;
+}
+
 /* =========================================================
    4. Editorial Serif Prose, Links, Quotes & User Bubbles
    ========================================================= */
@@ -389,7 +426,7 @@ a[aria-label="T3 Code home"]::after {
   font-family: var(--font-mono) !important;
 }
 
-.chat-markdown .chat-markdown-codeblock-header,.chat-markdown table {
+.chat-markdown .chat-markdown-codeblock-header {
   font-family: var(--font-sans);
 }
 
