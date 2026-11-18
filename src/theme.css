@@ -621,12 +621,13 @@ div:has(> [data-model-picker-effort]) {
   justify-content: center !important;
   align-items: center !important;
   gap: 5px !important;
-  padding: 0 9px !important;
+  padding: 0 9px 1px !important;
   white-space: nowrap;
   border: none !important;
   border-radius: 8px !important;
   font-size: 12px !important;
   font-weight: 500 !important;
+  text-box: normal !important;
   color: var(--cd-muted) !important;
   background: transparent !important;
   transition: background-color 0.18s ease,color 0.18s ease,box-shadow 0.18s ease,transform 0.12s ease !important;
@@ -805,7 +806,7 @@ div:has(> [data-model-picker-effort]) {
 }
 
 /* =========================================================
-   7. Bottom Composer Effort Pill (14px Icons + Laser Rim)
+   7. Bottom Composer Effort Pill (12px Icons + Laser Rim)
    ========================================================= */
 [data-chat-composer-form] [data-chat-provider-model-picker="true"] > span > span:has(> [data-composer-control-label]:not([data-composer-secondary-trait]),> [data-composer-effort-glyph]) {
   position: relative;
@@ -833,7 +834,8 @@ div:has(> [data-model-picker-effort]) {
   gap: 4.5px !important;
   max-width: 156px !important;
   height: 22px !important;
-  padding: 0 8px 0 6px !important;
+  /* 轻微底部留白以对齐文字光学中心，图标与文字同轴居中不额外下移 */
+  padding: 0 8px 2px 6px !important;
   border-radius: 7px !important;
   background: rgba(255,255,255,0.065) !important;
   border: 1px solid var(--cd-border) !important;
@@ -841,6 +843,8 @@ div:has(> [data-model-picker-effort]) {
   font-size: 11.5px !important;
   font-weight: 500 !important;
   line-height: 1 !important;
+  white-space: nowrap !important;
+  text-box: normal !important;
   transition: background-color 0.15s ease,border-color 0.15s ease,color 0.15s ease,box-shadow 0.15s ease !important;
 }
 
@@ -853,9 +857,9 @@ div:has(> [data-model-picker-effort]) {
 [data-chat-composer-form] [data-chat-provider-model-picker="true"] [data-composer-control-label="true"]:not([data-composer-secondary-trait])::before {
   content: "";
   display: none;
-  flex: 0 0 14px !important;
-  width: 14px !important;
-  height: 14px !important;
+  flex: 0 0 12px !important;
+  width: 12px !important;
+  height: 12px !important;
   margin: 0 !important;
   background-color: currentColor;
   opacity: 0.96;
