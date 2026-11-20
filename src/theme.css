@@ -215,7 +215,7 @@ a:is([aria-label="T3 Code home"],:has(> span > [aria-label="T3"])) {
    ========================================================= */
 [data-chat-header] {
   border-bottom-color: var(--cd-border) !important;
-  backdrop-filter: blur(10px);
+  backdrop-filter: none !important;
 }
 
 [data-slot="sidebar-inner"] {
@@ -553,9 +553,6 @@ a:is([aria-label="T3 Code home"],:has(> span > [aria-label="T3"])) {
 /* =========================================================
    6. Model Picker & 6-Tier Laser Effort System
    ========================================================= */
-@keyframes cd-laser-flow{0%,100%{background-position:0% 50%,0% 50%}
-50%{background-position:100% 50%,100% 50%}
-}
 
 [data-slot="popover-popup"]:has([data-model-picker-content]) {
   width: 632px !important;
@@ -670,13 +667,12 @@ div:has(> [data-model-picker-effort]) {
   border: 1px solid transparent !important;
   background-color: transparent !important;
   background-image: linear-gradient(var(--cd-pill-active-bg),var(--cd-pill-active-bg)),var(--cd-effort-low-laser) !important;
-  background-size: 100% 100%,240% 240% !important;
+  background-size: 100% 100%,100% 100% !important;
   background-origin: padding-box,border-box !important;
   background-clip: padding-box,border-box !important;
   color: var(--cd-effort-low) !important;
   font-weight: 600 !important;
   box-shadow: 0 0 10px rgba(79,182,154,0.16),0 2px 6px rgba(0,0,0,0.24) !important;
-  animation: cd-laser-flow 4.5s ease-in-out infinite !important;
 }
 
 [data-model-picker-effort] [data-effort-level]:nth-of-type(2)::before {
@@ -688,13 +684,12 @@ div:has(> [data-model-picker-effort]) {
   border: 1px solid transparent !important;
   background-color: transparent !important;
   background-image: linear-gradient(var(--cd-pill-active-bg),var(--cd-pill-active-bg)),var(--cd-effort-med-laser) !important;
-  background-size: 100% 100%,240% 240% !important;
+  background-size: 100% 100%,100% 100% !important;
   background-origin: padding-box,border-box !important;
   background-clip: padding-box,border-box !important;
   color: var(--cd-effort-med) !important;
   font-weight: 600 !important;
   box-shadow: 0 0 10px rgba(105,166,248,0.18),0 2px 6px rgba(0,0,0,0.24) !important;
-  animation: cd-laser-flow 4.5s ease-in-out infinite !important;
 }
 
 [data-model-picker-effort] [data-effort-level]:nth-of-type(3)::before {
@@ -706,13 +701,12 @@ div:has(> [data-model-picker-effort]) {
   border: 1px solid transparent !important;
   background-color: transparent !important;
   background-image: linear-gradient(var(--cd-pill-active-bg),var(--cd-pill-active-bg)),var(--cd-effort-high-laser) !important;
-  background-size: 100% 100%,240% 240% !important;
+  background-size: 100% 100%,100% 100% !important;
   background-origin: padding-box,border-box !important;
   background-clip: padding-box,border-box !important;
   color: var(--cd-effort-high) !important;
   font-weight: 600 !important;
   box-shadow: 0 0 10px rgba(249,107,126,0.18),0 2px 6px rgba(0,0,0,0.24) !important;
-  animation: cd-laser-flow 4.5s ease-in-out infinite !important;
 }
 
 [data-model-picker-effort] [data-effort-level]:nth-of-type(4):not(:last-of-type)::before {
@@ -724,13 +718,12 @@ div:has(> [data-model-picker-effort]) {
   border: 1px solid transparent !important;
   background-color: transparent !important;
   background-image: linear-gradient(var(--cd-pill-active-bg),var(--cd-pill-active-bg)),var(--cd-effort-xhigh-laser) !important;
-  background-size: 100% 100%,240% 240% !important;
+  background-size: 100% 100%,100% 100% !important;
   background-origin: padding-box,border-box !important;
   background-clip: padding-box,border-box !important;
   color: var(--cd-effort-xhigh) !important;
   font-weight: 600 !important;
   box-shadow: 0 0 10px rgba(242,184,75,0.16),0 2px 6px rgba(0,0,0,0.24) !important;
-  animation: cd-laser-flow 4.5s ease-in-out infinite !important;
 }
 
 [data-model-picker-effort] [data-effort-level]:nth-of-type(5)::before {
@@ -742,21 +735,19 @@ div:has(> [data-model-picker-effort]) {
   border: 1px solid transparent !important;
   background-color: transparent !important;
   background-image: linear-gradient(var(--cd-pill-active-bg),var(--cd-pill-active-bg)),var(--cd-effort-max-laser) !important;
-  background-size: 100% 100%,240% 240% !important;
+  background-size: 100% 100%,100% 100% !important;
   background-origin: padding-box,border-box !important;
   background-clip: padding-box,border-box !important;
   color: var(--cd-effort-max) !important;
   font-weight: 600 !important;
   box-shadow: 0 0 10px rgba(198,141,253,0.16),0 2px 6px rgba(0,0,0,0.24) !important;
-  animation: cd-laser-flow 4.5s ease-in-out infinite !important;
 }
 
 [data-model-picker-effort] [data-effort-level]:nth-of-type(4):last-of-type::before,[data-model-picker-effort] [data-effort-level]:nth-of-type(n+6)::before {
   opacity: 1;
   background-color: transparent !important;
   background-image: var(--cd-laser-grad) !important;
-  background-size: 260% 260% !important;
-  animation: cd-laser-flow 4.2s ease-in-out infinite !important;
+  background-size: 100% 100% !important;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M13 2 4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
@@ -784,18 +775,17 @@ div:has(> [data-model-picker-effort]) {
   border: 1px solid transparent !important;
   background-color: transparent !important;
   background-image: linear-gradient(var(--cd-laser-surface),var(--cd-laser-surface)),var(--cd-laser-grad) !important;
-  background-size: 100% 100%,260% 260% !important;
+  background-size: 100% 100%,100% 100% !important;
   background-origin: padding-box,border-box !important;
   background-clip: padding-box,border-box !important;
   color: var(--cd-laser-text) !important;
   font-weight: 600 !important;
   box-shadow: var(--cd-laser-glow) !important;
-  animation: cd-laser-flow 4.2s ease-in-out infinite !important;
 }
 
 [data-model-picker-effort] [data-effort-level]:nth-of-type(n+4):last-of-type[aria-checked="true"]::after {
   background-image: var(--cd-laser-grad);
-  background-size: 220% 220%;
+  background-size: 100% 100%;
   color: #1A181D;
   border-color: transparent;
 }
@@ -869,13 +859,12 @@ div:has(> [data-model-picker-effort]) {
   border: 1px solid transparent !important;
   background-color: transparent !important;
   background-image: linear-gradient(var(--cd-laser-surface),var(--cd-laser-surface)),var(--cd-effort-low-laser) !important;
-  background-size: 100% 100%,240% 240% !important;
+  background-size: 100% 100%,100% 100% !important;
   background-origin: padding-box,border-box !important;
   background-clip: padding-box,border-box !important;
   color: var(--cd-effort-low) !important;
   font-weight: 600 !important;
   box-shadow: 0 0 9px rgba(79,182,154,0.16),0 1px 4px rgba(0,0,0,0.24) !important;
-  animation: cd-laser-flow 4.5s ease-in-out infinite !important;
 }
 
 [data-chat-composer-form] [data-chat-provider-model-picker="true"]:is([aria-label*=", Low"],[aria-label*="· Low"],[aria-label="Low"],[aria-label*=", Minimal"],[aria-label*="· Minimal"],[aria-label="Minimal"]) [data-composer-control-label="true"]:not([data-composer-secondary-trait])::before {
@@ -888,13 +877,12 @@ div:has(> [data-model-picker-effort]) {
   border: 1px solid transparent !important;
   background-color: transparent !important;
   background-image: linear-gradient(var(--cd-laser-surface),var(--cd-laser-surface)),var(--cd-effort-med-laser) !important;
-  background-size: 100% 100%,240% 240% !important;
+  background-size: 100% 100%,100% 100% !important;
   background-origin: padding-box,border-box !important;
   background-clip: padding-box,border-box !important;
   color: var(--cd-effort-med) !important;
   font-weight: 600 !important;
   box-shadow: 0 0 9px rgba(105,166,248,0.18),0 1px 4px rgba(0,0,0,0.24) !important;
-  animation: cd-laser-flow 4.5s ease-in-out infinite !important;
 }
 
 [data-chat-composer-form] [data-chat-provider-model-picker="true"]:is([aria-label*=", Medium"],[aria-label*="· Medium"],[aria-label="Medium"]) [data-composer-control-label="true"]:not([data-composer-secondary-trait])::before {
@@ -907,13 +895,12 @@ div:has(> [data-model-picker-effort]) {
   border: 1px solid transparent !important;
   background-color: transparent !important;
   background-image: linear-gradient(var(--cd-laser-surface),var(--cd-laser-surface)),var(--cd-effort-high-laser) !important;
-  background-size: 100% 100%,240% 240% !important;
+  background-size: 100% 100%,100% 100% !important;
   background-origin: padding-box,border-box !important;
   background-clip: padding-box,border-box !important;
   color: var(--cd-effort-high) !important;
   font-weight: 600 !important;
   box-shadow: 0 0 9px rgba(249,107,126,0.18),0 1px 4px rgba(0,0,0,0.24) !important;
-  animation: cd-laser-flow 4.5s ease-in-out infinite !important;
 }
 
 [data-chat-composer-form] [data-chat-provider-model-picker="true"]:is([aria-label*=", High"],[aria-label*="· High"],[aria-label="High"]):not([aria-label*=", Extra High"]):not([aria-label*="· Extra High"]):not([aria-label="Extra High"]) [data-composer-control-label="true"]:not([data-composer-secondary-trait])::before {
@@ -927,13 +914,12 @@ div:has(> [data-model-picker-effort]) {
   border: 1px solid transparent !important;
   background-color: transparent !important;
   background-image: linear-gradient(var(--cd-laser-surface),var(--cd-laser-surface)),var(--cd-effort-xhigh-laser) !important;
-  background-size: 100% 100%,240% 240% !important;
+  background-size: 100% 100%,100% 100% !important;
   background-origin: padding-box,border-box !important;
   background-clip: padding-box,border-box !important;
   color: var(--cd-effort-xhigh) !important;
   font-weight: 600 !important;
   box-shadow: 0 0 9px rgba(242,184,75,0.16),0 1px 4px rgba(0,0,0,0.24) !important;
-  animation: cd-laser-flow 4.5s ease-in-out infinite !important;
 }
 
 [data-chat-composer-form] [data-chat-provider-model-picker="true"]:is([aria-label*=", Extra High"],[aria-label*="· Extra High"],[aria-label="Extra High"]) [data-composer-control-label="true"]:not([data-composer-secondary-trait])::before {
@@ -947,13 +933,12 @@ div:has(> [data-model-picker-effort]) {
   border: 1px solid transparent !important;
   background-color: transparent !important;
   background-image: linear-gradient(var(--cd-laser-surface),var(--cd-laser-surface)),var(--cd-effort-max-laser) !important;
-  background-size: 100% 100%,240% 240% !important;
+  background-size: 100% 100%,100% 100% !important;
   background-origin: padding-box,border-box !important;
   background-clip: padding-box,border-box !important;
   color: var(--cd-effort-max) !important;
   font-weight: 600 !important;
   box-shadow: 0 0 9px rgba(198,141,253,0.18),0 1px 4px rgba(0,0,0,0.24) !important;
-  animation: cd-laser-flow 4.5s ease-in-out infinite !important;
 }
 
 [data-chat-composer-form] [data-chat-provider-model-picker="true"]:is([aria-label*=", Max"],[aria-label*="· Max"],[aria-label="Max"]) [data-composer-control-label="true"]:not([data-composer-secondary-trait])::before {
@@ -967,13 +952,12 @@ div:has(> [data-model-picker-effort]) {
   border: 1px solid transparent !important;
   background-color: transparent !important;
   background-image: linear-gradient(var(--cd-laser-surface),var(--cd-laser-surface)),var(--cd-laser-grad) !important;
-  background-size: 100% 100%,260% 260% !important;
+  background-size: 100% 100%,100% 100% !important;
   background-origin: padding-box,border-box !important;
   background-clip: padding-box,border-box !important;
   color: var(--cd-laser-text) !important;
   font-weight: 600 !important;
   box-shadow: var(--cd-laser-glow) !important;
-  animation: cd-laser-flow 4.2s ease-in-out infinite !important;
 }
 
 [data-chat-composer-form] [data-chat-provider-model-picker="true"]:is([aria-label*=", Extra"],[aria-label*="· Extra"],[aria-label="Extra"],[aria-label*=", Ultra"],[aria-label*="· Ultra"],[aria-label="Ultra"],[aria-label="Ultrathink"]):not([aria-label*=", Extra High"]):not([aria-label*="· Extra High"]):not([aria-label="Extra High"]):is(:hover,[data-popup-open]) [data-composer-control-label="true"]:not([data-composer-secondary-trait]) {
@@ -985,8 +969,7 @@ div:has(> [data-model-picker-effort]) {
   opacity: 1;
   background-color: transparent !important;
   background-image: var(--cd-laser-grad) !important;
-  background-size: 260% 260% !important;
-  animation: cd-laser-flow 4.2s ease-in-out infinite !important;
+  background-size: 100% 100% !important;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M13 2 4 14h6l-1 8 9-12h-6l1-8z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
