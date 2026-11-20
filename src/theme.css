@@ -176,7 +176,6 @@
 body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 svg.lucide {
@@ -303,6 +302,12 @@ a:is([aria-label="T3 Code home"],:has(> span > [aria-label="T3"])) {
   border-radius: 10px !important;
 }
 
+/* 左侧栏会话标题收小至 0.8125rem（默认 13px），随界面字号设置同步缩放 */
+[data-thread-item] [data-sidebar-row] .text-sm {
+  font-size: 0.8125rem !important;
+  line-height: 1.4 !important;
+}
+
 [data-slot="sidebar"] .text-info-foreground {
   color: var(--cd-accent-link) !important;
 }
@@ -399,21 +404,21 @@ a:is([aria-label="T3 Code home"],:has(> span > [aria-label="T3"])) {
 }
 
 [data-work-entry-id] > div.cursor-auto .chat-markdown {
-  font-size: 13.5px;
+  font-size: 0.84375rem;
   line-height: 1.6;
   letter-spacing: normal;
 }
 
 :is([data-message-role="assistant"],[data-timeline-row-kind="proposed-plan"]) .chat-markdown:not(.user-message-markdown) {
   font-family: var(--cd-font-serif);
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 1.72;
   letter-spacing: -0.003em;
 }
 
 .chat-markdown.user-message-markdown {
   font-family: var(--font-sans);
-  font-size: 14.5px;
+  font-size: 0.90625rem;
   line-height: 1.65;
 }
 
@@ -1118,4 +1123,21 @@ diffs-container,[data-diffs-header],[data-diff],[data-file] {
   border: none !important;
   box-shadow: none !important;
   outline: none !important;
+}
+
+/* =========================================================
+   9. 右侧面板默认自适应宽度（占主工作区 65%，主对话区保底 380px）
+   ========================================================= */
+[data-preview-panel-mode="inline"][data-preview-panel-maximized="false"]:not([data-workspace-unavailable="true"]) {
+  width: max(var(--resizable-width,540px),min(65%,calc(100% - 380px))) !important;
+}
+
+[data-preview-panel-mode="inline"][data-preview-panel-maximized="false"]:not([data-workspace-unavailable="true"]) > div:not([role="separator"]) > div {
+  width: 100% !important;
+}
+
+[data-panel-animations="true"] [data-preview-panel-mode="inline"][data-preview-panel-maximized="false"]:not([data-workspace-unavailable="true"]) {
+  @starting-style {
+    width: 0px !important;
+  }
 }
