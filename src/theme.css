@@ -44,8 +44,8 @@
   --cd-focus-border: rgba(217,119,87,0.46);
   --cd-focus-glow-search: inset 0 0 0 1px rgba(217,119,87,0.45),inset 0 0 8px rgba(217,119,87,0.06),0 0 10px 0.5px rgba(217,119,87,0.22);
   --cd-focus-glow-input: 0 0 0 1px rgba(217,119,87,0.10),0 0 10px 0.5px rgba(217,119,87,0.22);
-  --cd-shadow-composer: 0 4px 20px rgba(0,0,0,0.28);
-  --cd-shadow-composer-focus: 0 0 0 1px rgba(217,119,87,0.14),0 0 14px 1px rgba(217,119,87,0.22),0 8px 26px rgba(0,0,0,0.34);
+  --cd-shadow-composer: none;
+  --cd-shadow-composer-focus: none;
   --cd-shadow-pop: 0 14px 40px rgba(0,0,0,0.52),0 0 0 1px rgba(255,255,255,0.09);
   --cd-off: #3D3D3D;
   --cd-off-fg: #7A7A7A;
@@ -300,6 +300,17 @@ a:is([aria-label="T3 Code home"],:has(> span > [aria-label="T3"])) {
 
 [data-thread-item] [data-sidebar-row] {
   border-radius: 10px !important;
+  transition: transform 0.08s cubic-bezier(0.2,0,0,1) !important;
+}
+
+[data-thread-item] [data-sidebar-row]:active:not(:has(button:active)) {
+  transform: scale(0.99);
+}
+
+/* 点击瞬间（0ms）乐观亮起原生选中底色，路由提交后无缝交接给 aria-current */
+[data-thread-item] [data-sidebar-row]:is(:focus,:active:not(:has(button:active))) {
+  background-color: var(--sidebar-row-active) !important;
+  color: var(--sidebar-foreground) !important;
 }
 
 /* 左侧栏会话标题收小至 0.8125rem（默认 13px），随界面字号设置同步缩放 */
@@ -483,29 +494,49 @@ a:is([aria-label="T3 Code home"],:has(> span > [aria-label="T3"])) {
 /* =========================================================
    5. Floating Composer Card & Squircle Submit Button
    ========================================================= */
-[data-chat-composer-form],[data-chat-composer-form] :is([data-chat-composer-main-surface="true"],[data-slot="composer-host"]) {
+/* 关闭主滚动容器顶部的三层 mask-image（顶栏本身为实色，去遮罩可降低滚屏合成开销） */
+.messages-timeline-scroll.topbar-scroll-fade {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* 仅覆盖输入栏底色与边框变量，完整保留原生 --glass-opacity / --glass-blur 随设置页滑块联动 */
+:is([data-chat-composer-overlay="true"],[data-slot="composer-shell"],[data-slot="composer-host"],[data-chat-composer-form],[data-chat-composer-main-surface="true"]) {
   --chat-composer-glass-surface: var(--cd-composer-bg) !important;
   --chat-composer-outline: var(--cd-border-strong) !important;
 }
 
-:root.dark [data-chat-composer-form],:root.dark [data-chat-composer-form] :is([data-chat-composer-main-surface="true"],[data-slot="composer-host"]) {
-  --glass-opacity: 100% !important;
+/* 当用户在「设置 → 外观 → Glass opacity」拉到 100%（实色）时，彻底关闭残留 backdrop-filter 并锁定独立 GPU 合成层 */
+:is(:root[style*="--glass-blur: 0px"],:root[style*="--glass-blur:0px"]) :is([data-slot="composer-shell"]::before,[data-slot="composer-host"]::before,[data-chat-composer-main-surface="true"],[data-slot="composer-context-strip"],[data-scroll-to-end="true"],[data-thread-details-card],.dropdown-glass,.surface-glass,.dialog-glass) {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+:is(:root[style*="--glass-blur: 0px"],:root[style*="--glass-blur:0px"]) :is([data-slot="composer-shell"],[data-thread-details-panel="inline"]) {
+  transform: translate3d(0,0,0);
+  backface-visibility: hidden;
+  will-change: transform;
+  isolation: isolate;
+}
+
+:is(:root[style*="--glass-blur: 0px"],:root[style*="--glass-blur:0px"]) [data-scroll-to-end="true"] {
+  background: var(--cd-surface) !important;
 }
 
 [data-slot="composer-host"]::after,[data-chat-composer-main-surface="true"]::after {
   transition: border-color 0.2s ease;
 }
 
-[data-chat-composer-form]:has([data-slot="composer-host"]:focus-within),[data-chat-composer-form]:has([data-slot="composer-host"]:focus-within) :is([data-chat-composer-main-surface="true"],[data-slot="composer-host"]),[data-slot="composer-host"]:focus-within {
+[data-slot="composer-host"]:focus-within,[data-slot="composer-host"]:focus-within [data-chat-composer-main-surface="true"] {
   --chat-composer-outline: var(--cd-focus-border) !important;
 }
 
-[data-chat-composer-form]:not(:has([data-composer-banner-surface="attached"])) [data-slot="composer-host"],[data-chat-composer-form]:has([data-composer-banner-surface="attached"]) [data-chat-composer-main-surface="true"] {
+[data-slot="composer-shell"]:not(:has([data-composer-banner-surface="attached"])) [data-slot="composer-host"],[data-slot="composer-shell"]:has([data-composer-banner-surface="attached"]) [data-chat-composer-main-surface="true"] {
   box-shadow: var(--cd-shadow-composer) !important;
   transition: box-shadow 0.22s ease;
 }
 
-[data-chat-composer-form]:not(:has([data-composer-banner-surface="attached"])) [data-slot="composer-host"]:focus-within,[data-chat-composer-form]:has([data-composer-banner-surface="attached"]) [data-chat-composer-main-surface="true"]:focus-within {
+[data-slot="composer-shell"]:not(:has([data-composer-banner-surface="attached"])) [data-slot="composer-host"]:focus-within,[data-slot="composer-shell"]:has([data-composer-banner-surface="attached"]) [data-chat-composer-main-surface="true"]:focus-within {
   box-shadow: var(--cd-shadow-composer-focus) !important;
 }
 
@@ -1054,9 +1085,21 @@ div:has(> [data-model-picker-effort]) {
   font-size: 12px;
 }
 
+[data-thread-details-panel="inline"] {
+  contain: layout style;
+}
+
 [data-thread-details-card] {
   border-radius: 14px !important;
   border-color: var(--cd-border) !important;
+}
+
+/* 移除详情卡内部 ScrollArea 的四向 mask-composite 渐变遮罩，避免嵌套离屏合成面重建 */
+[data-thread-details-card] [data-slot="scroll-area-viewport"] {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  -webkit-mask-composite: initial !important;
+  mask-composite: initial !important;
 }
 
 ::-webkit-scrollbar {
