@@ -119,8 +119,8 @@
   --cd-focus-border: rgba(201,100,66,0.44);
   --cd-focus-glow-search: inset 0 0 0 1px rgba(201,100,66,0.42),inset 0 0 8px rgba(201,100,66,0.05),0 0 10px 0.5px rgba(201,100,66,0.16);
   --cd-focus-glow-input: 0 0 0 1px rgba(201,100,66,0.09),0 0 10px 0.5px rgba(201,100,66,0.15);
-  --cd-shadow-composer: 0 2px 10px rgba(20,20,19,0.04),0 8px 24px rgba(20,20,19,0.05);
-  --cd-shadow-composer-focus: 0 0 0 1px rgba(201,100,66,0.10),0 0 14px 1px rgba(201,100,66,0.16),0 6px 22px rgba(20,20,19,0.07);
+  --cd-shadow-composer: none;
+  --cd-shadow-composer-focus: none;
   --cd-shadow-pop: 0 12px 36px rgba(20,20,19,0.12),0 0 0 1px rgba(20,20,19,0.08);
   --cd-off: #EEEDE8;
   --cd-off-fg: #9C9A92;
